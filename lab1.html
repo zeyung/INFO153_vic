@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vic's Corner — Lab 1</title>
+    <style>
+        :root {
+            --ink: #1a1f16;
+            --paper: #f3efe6;
+            --moss: #3d5a3a;
+            --leaf: #6b8f71;
+            --sun: #e8b86d;
+            --clay: #c47a5a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+            background:
+                radial-gradient(ellipse at top left, rgba(107, 143, 113, 0.18), transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(232, 184, 109, 0.22), transparent 45%),
+                var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--moss), var(--leaf));
+            color: var(--paper);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 12px rgba(26, 31, 22, 0.2);
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--paper);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.15rem;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            border-bottom-color: var(--sun);
+            color: var(--sun);
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        section {
+            animation: rise 0.6s ease both;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            color: var(--moss);
+            margin-bottom: 0.75rem;
+            border-left: 4px solid var(--sun);
+            padding-left: 0.75rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        figure {
+            margin: 1rem 0;
+        }
+
+        figure img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 50%;
+            border: 4px solid var(--leaf);
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 8px 24px rgba(61, 90, 58, 0.25);
+            transition: transform 0.35s ease;
+        }
+
+        figure img:hover {
+            transform: scale(1.04) rotate(-2deg);
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 0.75rem;
+            font-style: italic;
+            color: var(--moss);
+            font-size: 0.95rem;
+        }
+
+        article {
+            background: rgba(255, 255, 255, 0.55);
+            border-left: 3px solid var(--clay);
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        article h3 {
+            color: var(--clay);
+            margin-bottom: 0.35rem;
+        }
+
+        address {
+            font-style: normal;
+            background: rgba(107, 143, 113, 0.12);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        address a {
+            color: var(--moss);
+            font-weight: bold;
+        }
+
+        address a:hover {
+            color: var(--clay);
+        }
+
+        footer {
+            background: var(--ink);
+            color: var(--paper);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--sun);
+        }
+
+        footer small {
+            display: block;
+            margin-top: 0.35rem;
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vic's Corner</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="https://github.com/zeyung" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <figure>
+                <img
+                    src="https://api.dicebear.com/9.x/shapes/svg?seed=Vic&backgroundColor=6b8f71"
+                    alt="Abstract avatar representing Vic"
+                    width="280"
+                    height="280"
+                >
+                <figcaption>Hello — I'm Vic, exploring the web one semantic tag at a time.</figcaption>
+            </figure>
+            <p>
+                Welcome to my Lab 1 page for INFO 153. I like clean structure,
+                thoughtful design, and pages that still make sense with the CSS turned off.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <article>
+                <h3>Semantic Sandbox</h3>
+                <p>
+                    This very page — practicing header, main, footer, and friends
+                    without a single non-semantic wrapper.
+                </p>
+            </article>
+            <article>
+                <h3>Coming Soon</h3>
+                <p>
+                    More coursework experiments: layouts, accessibility, and maybe
+                    a tiny interactive story built only with HTML &amp; CSS.
+                </p>
+            </article>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Want to swap ideas about the web, design, or class projects?</p>
+            <address>
+                Reach me at
+                <a href="mailto:vic@example.com">vic@example.com</a>
+                or say hello on
+                <a href="https://github.com/zeyung" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with semantic HTML for INFO 153 — Lab 1</p>
+        <small>&copy; 2026 Vic. Built without &lt;div&gt;.</small>
+    </footer>
+</body>
+</html>
